@@ -20,6 +20,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { GradeComponent } from './components/grade/grade.component';
+import { MatCardModule } from '@angular/material/card';
+import {MatRadioModule} from '@angular/material/radio'
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { GradeComponent } from './components/grade/grade.component';
     MatFormFieldModule,
     MatIconModule,
     MatSelectModule,
+    MatCardModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
