@@ -59,6 +59,21 @@ export class GradeComponent {
   }
 
   filterChanged(){
-    
+    if (this.idAluno != "" && this.idSemestre != "") {
+      this.semestreService.getSemestres().subscribe({
+        next: (data) => {
+          //buscas quantas disciplinas tem naquele semestre
+          console.log(data);
+          this.semestres = data;
+        },
+        error: (error) => {
+          console.error("Erro na busca de semestres:");
+          console.error(error);
+        },
+        complete: () => {
+          console.log('Consulta de semestres concluída');
+        },
+      });
+    }
   }
 }
