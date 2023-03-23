@@ -19,6 +19,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
+import { GradeComponent } from './components/grade/grade.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MatSelectModule } from '@angular/material/select';
     ListaAlunoComponent,
     ListaLinhaComponent,
     ListaSemestreComponent,
-    ListaDisciplinaComponent
+    ListaDisciplinaComponent,
+    GradeComponent
   ],
   imports: [
     AppRoutingModule,
