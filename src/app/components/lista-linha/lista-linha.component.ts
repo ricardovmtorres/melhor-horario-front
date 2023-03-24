@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LinhaService } from 'src/app/services/linha.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DetalharLinhaComponent } from './detalhar-linha/detalhar-linha.component';
 
 @Component({
   selector: 'app-lista-linha',
@@ -15,7 +17,8 @@ export class ListaLinhaComponent {
 
   constructor(
     private linhaService: LinhaService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private dialog: MatDialog
   ) {
     this.formulario = this.formBuilder.group({
       nome: ['', Validators.required],
@@ -84,6 +87,12 @@ export class ListaLinhaComponent {
 
   detalharLinha(idLinha: string){
     console.log(idLinha);
-    //todo: chamar modal passando id por parametro
+    const dialogRef = this.dialog.open(DetalharLinhaComponent, {
+      data: { idLinha }
+    });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('O modal foi fechado.');
+    });
   }
 }

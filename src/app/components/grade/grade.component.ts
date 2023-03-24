@@ -124,7 +124,6 @@ export class GradeComponent {
   }
 
   organizaDisciplinas(disciplinas: any[]) {
-    debugger;
     let disciplinasOrdenadas = disciplinas.sort((a, b) => {
       return a.horario.localeCompare(b.horario);
     });
