@@ -1,76 +1,79 @@
 <div class="container">
 
-<h4>Quem é você?</h4>
-<mat-form-field appearance="fill">
+  <h4>Quem é você?</h4>
+  <mat-form-field appearance="fill">
     <mat-label>Selecione um aluno</mat-label>
-    <mat-select [(value)]="idAluno">
-        <mat-option>Nome</mat-option>
-        <mat-option value="option1">Henrique Barcelos</mat-option>
-        <mat-option value="option2">Ricardo Torres</mat-option>
+    <mat-select [(ngModel)]="idAluno" (ngModelChange)="filterChanged()">
+      <mat-option value="">Nome</mat-option>
+      <mat-option *ngFor="let aluno of alunos" [value]="aluno.id">{{ aluno.nome }}</mat-option>
     </mat-select>
-</mat-form-field>
+  </mat-form-field>
 
-<h4>Selecione um semestre:</h4>
-<mat-radio-group aria-label="Select uma opção">
-    <mat-radio-button value="1">2023/1</mat-radio-button>
-    <mat-radio-button value="2">2023/2</mat-radio-button>
-</mat-radio-group>
-<mat-card>
-  <mat-card-content>
-    Cronograma de aulas - 2023/1
-</mat-card-content>
-</mat-card>
+  <h4>Selecione um semestre:</h4>
+  <mat-radio-group [(ngModel)]="idSemestre" aria-label="Select uma opção" (change)="filterChanged()">
+    <mat-radio-button *ngFor="let s of semestres" [value]="s.id">{{ s.nome }}</mat-radio-button>
+  </mat-radio-group>
 
-<div class="tabela">
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <div class="tabela" *ngIf="idAluno != '' && idSemestre != ''; else selecione">
 
-    <!-- Horario Column -->
-    <ng-container matColumnDef="horario">
-      <th mat-header-cell *matHeaderCellDef> Horário </th>
-      <td mat-cell *matCellDef="let disciplina"> {{disciplina.horario}} </td>
-    </ng-container>
-  
-    <!-- Segunda-Feira Column -->
-    <ng-container matColumnDef="segunda">
-      <th mat-header-cell *matHeaderCellDef> Segunda-Feira </th>
-      <td mat-cell *matCellDef="let disciplina"> 
-        <span *ngIf="disciplina.Segunda != {}">{{ disciplina.Segunda.nome }}</span>
-      </td>
-    </ng-container>
-  
-    <!-- Terça-Feira Column -->
-    <ng-container matColumnDef="terca">
-      <th mat-header-cell *matHeaderCellDef> Terça-Feira </th>
-      <td mat-cell *matCellDef="let disciplina"> 
-        <span *ngIf="disciplina.Terca != {}">{{ disciplina.Terca.nome }}</span>
-      </td>
-    </ng-container>
-  
-    <!-- Quarta-Feira Column -->
-    <ng-container matColumnDef="quarta">
-      <th mat-header-cell *matHeaderCellDef> Quarta-Feira </th>
-      <td mat-cell *matCellDef="let disciplina"> 
-        <span *ngIf="disciplina.Quarta != {}">{{ disciplina.Quarta.nome }}</span>
-      </td>
-    </ng-container>
-  
-    <!-- Quinta-Feira Column -->
-    <ng-container matColumnDef="quinta">
-      <th mat-header-cell *matHeaderCellDef> Quinta-Feira </th>
-      <td mat-cell *matCellDef="let disciplina"> 
-        <span *ngIf="disciplina.Quinta != {}">{{ disciplina.Quinta.nome }}</span>
-      </td>
-    </ng-container>
-  
-    <!-- Sexta-Feira Column -->
-    <ng-container matColumnDef="sexta">
-      <th mat-header-cell *matHeaderCellDef> Sexta-Feira </th>
-      <td mat-cell *matCellDef="let disciplina"> 
-        <span *ngIf="disciplina.Sexta != {}">{{ disciplina.Sexta.nome }}</span>
-      </td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-</div>    
+    <mat-card>
+      <mat-card-content>
+        Cronograma de aulas - {{ nomeSemestre }}
+      </mat-card-content>
+    </mat-card>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!-- Horario Column -->
+      <ng-container matColumnDef="horario">
+        <th mat-header-cell *matHeaderCellDef> Horário </th>
+        <td mat-cell *matCellDef="let disciplina"> {{disciplina.horario}} </td>
+      </ng-container>
+
+      <!-- Segunda-Feira Column -->
+      <ng-container matColumnDef="segunda">
+        <th mat-header-cell *matHeaderCellDef> Segunda-Feira </th>
+        <td mat-cell *matCellDef="let disciplina">
+          <span *ngIf="disciplina.Segunda != {}">{{ disciplina.Segunda.nome }}</span>
+        </td>
+      </ng-container>
+
+      <!-- Terça-Feira Column -->
+      <ng-container matColumnDef="terca">
+        <th mat-header-cell *matHeaderCellDef> Terça-Feira </th>
+        <td mat-cell *matCellDef="let disciplina">
+          <span *ngIf="disciplina.Terca != {}">{{ disciplina.Terca.nome }}</span>
+        </td>
+      </ng-container>
+
+      <!-- Quarta-Feira Column -->
+      <ng-container matColumnDef="quarta">
+        <th mat-header-cell *matHeaderCellDef> Quarta-Feira </th>
+        <td mat-cell *matCellDef="let disciplina">
+          <span *ngIf="disciplina.Quarta != {}">{{ disciplina.Quarta.nome }}</span>
+        </td>
+      </ng-container>
+
+      <!-- Quinta-Feira Column -->
+      <ng-container matColumnDef="quinta">
+        <th mat-header-cell *matHeaderCellDef> Quinta-Feira </th>
+        <td mat-cell *matCellDef="let disciplina">
+          <span *ngIf="disciplina.Quinta != {}">{{ disciplina.Quinta.nome }}</span>
+        </td>
+      </ng-container>
+
+      <!-- Sexta-Feira Column -->
+      <ng-container matColumnDef="sexta">
+        <th mat-header-cell *matHeaderCellDef> Sexta-Feira </th>
+        <td mat-cell *matCellDef="let disciplina">
+          <span *ngIf="disciplina.Sexta != {}">{{ disciplina.Sexta.nome }}</span>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <ng-template #selecione>
+    <p>Selecione um aluno e um semestre para imprimir a grade.</p>
+  </ng-template>
