@@ -22,7 +22,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { GradeComponent } from './components/grade/grade.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatRadioModule } from '@angular/material/radio';
-import { GestaoComponent } from './components/gestao/gestao.component'
+import { GestaoComponent } from './components/gestao/gestao.component';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 @NgModule({
   declarations: [
@@ -49,6 +51,7 @@ import { GestaoComponent } from './components/gestao/gestao.component'
     MatSelectModule,
     MatCardModule,
     MatRadioModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

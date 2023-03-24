@@ -1,4 +1,88 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: "Segoe UI", "Helvetica Neue", sans-serif; }
+
+
+  /* CSS personalizado para o projeto: */
+  navbar {
+    height: 72px;
+  }
+
+  body {
+    background-color: #F5F7F9;
+  }
+
+
+  .custom-nav-image-container {
+    width: 32px;
+    height: 32px;
+
+  }
+
+  .corpo-principal {
+    max-width: 900px;
+    background-color: #fff;
+    padding: 0;
+    border-radius: 16px;
+    box-shadow: 0px 1px 1px rgba(58, 66, 68, 0.15), 0px 2px 5px 1px rgba(90, 103, 106, 0.1);
+  }
+
+  .content {
+    padding: 32px;
+  }
+
+  button {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 18px;
+    vertical-align: middle;
+    border-radius: 4px;
+    padding: 8px 15px;
+    height: 56px;
+    border: none;
+
+  }
+
+  button.small {
+    padding: 4px 8px;
+    height: auto;
+  }
+
+  button.primary {
+    color: white;
+    background-color: #00718A;
+    box-shadow: 0px 1px 2px rgba(58, 66, 68, 0.1);
+  }
+
+  button.secondary {
+    color: #5C6270;
+    background-color: white;
+    border: 1px solid #D4D4D4;
+    box-shadow: 0px 1px 2px rgba(58, 66, 68, 0.1);
+  }
+
+  .mat-mdc-table .mdc-data-table__header-row {
+    background-color: #FAFAFA;
+    text-transform: uppercase;
+  }
+
+  .mat-mdc-header-cell.mdc-data-table__header-cell {
+    color: #5C6270;
+    font-size: 14px
+  }
+
+  .mat-mdc-table {
+    border-radius: 8px;
+    border: 1px solid #E9E9E9 !important;
+    border-collapse: separate;
+    overflow: hidden;
+    box-shadow: 0px 1px 2px rgba(58, 66, 68, 0.1);
+  }
+
+
+  .mat-mdc-tab-list {
+    border-bottom: 2px solid #E9E9E9;
+  }
+
