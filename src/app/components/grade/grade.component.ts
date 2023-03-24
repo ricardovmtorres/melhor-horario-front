@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AlunoService } from 'src/app/services/aluno.service';
 import { DisciplinaService } from 'src/app/services/disciplina.service';
+import { LinhaService } from 'src/app/services/linha.service';
 import { SemestreService } from 'src/app/services/semestre.service';
 interface DiasDaSemana {
   [key: string]: Disciplina[];
@@ -37,6 +38,7 @@ export class GradeComponent {
     private alunoService: AlunoService,
     private semestreService: SemestreService,
     private disciplinaService: DisciplinaService,
+    private linhaService: LinhaService,
   ) { }
 
   ngOnInit() {
@@ -126,6 +128,24 @@ export class GradeComponent {
   organizaDisciplinas(disciplinas: any[]) {
     let disciplinasOrdenadas = disciplinas.sort((a, b) => {
       return a.horario.localeCompare(b.horario);
+    });
+
+    disciplinasOrdenadas.map(disciplina => {
+      this.linhaService.melhorLinhaHorario(disciplina.horario).subscribe({
+        next: (data) => {
+          // console.log(data);
+          disciplina.melhorLinha = data.linha + " - " + data.horario;
+          
+          console.log(disciplina.melhorLinha);
+        },
+        error: (error) => {
+          console.error("Erro na busca de disciplinas de um aluno por semestre:");
+          console.error(error);
+        },
+        complete: () => {
+          console.log('Consulta de disciplinas de um aluno por semestre concluída');
+        },
+      });
     });
 
     let diasDaSemana: DiasDaSemana = {

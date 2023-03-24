@@ -31,4 +31,10 @@ export class LinhaService {
     var result = this.http.delete(`${this.url}/${id}`);
     return result;
   }
+
+  melhorLinhaHorario(horario: string): Observable<any> {
+    var result = this.http.get(`${environment.apiUrl}/horario/${horario}/melhorlinha`);
+    return result;
+  }
+
 }
