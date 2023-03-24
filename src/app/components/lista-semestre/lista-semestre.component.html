@@ -1,11 +1,11 @@
 <div class="row">
     <div class="form">
         <form [formGroup]="formulario">
-            <mat-form-field>
+            <mat-form-field class="me-2">
               <input matInput placeholder="Digite um semestre" formControlName="nome">
             </mat-form-field>
           
-            <button class="ms-2 primary" mat-raised-button color="primary" (click)="adicionarSemestre()" [disabled]="formulario.invalid">
+            <button mat-raised-button color="primary" (click)="adicionarSemestre()" [disabled]="formulario.invalid">
                 <mat-icon>add</mat-icon>Adicionar
             </button>
           </form>
