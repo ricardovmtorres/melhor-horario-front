@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DisciplinaService } from 'src/app/services/disciplina.service';
-import { SemestreService } from 'src/app/services/semestre.service';
 
 @Component({
   selector: 'app-lista-disciplina',
@@ -10,14 +9,12 @@ import { SemestreService } from 'src/app/services/semestre.service';
 })
 export class ListaDisciplinaComponent {
   public disciplinas: any[] = [];
-  public semestres: any[] = [];
-  public displayedColumns: string[] = ['id', 'nome', 'nome-curto', 'sala', 'semestre', 'acoes'];
+  public displayedColumns: string[] = ['id', 'nome', 'nome-curto', 'acoes'];
 
   public formulario: FormGroup;
 
   constructor(
     private disciplinaService: DisciplinaService,
-    private semestreService: SemestreService,
     private formBuilder: FormBuilder
   ) {
     this.formulario = this.formBuilder.group({
@@ -27,26 +24,9 @@ export class ListaDisciplinaComponent {
   }
 
   ngOnInit() {
-    this.listarSemestres();
     this.listarDisciplinas();
   };
-  
-  listarSemestres() {
-    this.semestreService.getSemestres().subscribe({
-      next: (data) => {
-        //buscas quantas disciplinas tem naquele semestre
-        console.log(data);
-        this.semestres = data;
-      },
-      error: (error) => {
-        console.error("Erro na busca de semestres:");
-        console.error(error);
-      },
-      complete: () => {
-        console.log('Consulta de semestres concluída');
-      },
-    });
-  }
+
 
   listarDisciplinas() {
     this.disciplinaService.getDisciplinas().subscribe({

@@ -192,3 +192,10 @@ background-color: #0000000f;
 .mat-mdc-tab .mat-ripple-element, .mat-mdc-tab-header-pagination .mat-ripple-element, .mat-mdc-tab-link .mat-ripple-element {
 background-color: #00718a;
 }
+
+.mat-mdc-dialog-actions, .mdc-dialog__actions {
+    justify-content: end!important;
+    padding: 16px!important;
+    border-top: 1px solid #ccc!important;
+    gap: 16px;
+}
