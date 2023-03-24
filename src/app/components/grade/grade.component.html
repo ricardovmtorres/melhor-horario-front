@@ -1,3 +1,57 @@
 <mat-card>
-    <mat-card-content>Simple card</mat-card-content>
-  </mat-card>
+  <mat-card-content>Simple card</mat-card-content>
+</mat-card>
+
+<div class="tabela">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Horario Column -->
+    <ng-container matColumnDef="horario">
+      <th mat-header-cell *matHeaderCellDef> Horário </th>
+      <td mat-cell *matCellDef="let disciplina"> {{disciplina.horario}} </td>
+    </ng-container>
+  
+    <!-- Segunda-Feira Column -->
+    <ng-container matColumnDef="segunda">
+      <th mat-header-cell *matHeaderCellDef> Segunda-Feira </th>
+      <td mat-cell *matCellDef="let disciplina"> 
+        <span *ngIf="disciplina.diaSemana === 'Segunda'">{{ disciplina.horario }}</span>
+      </td>
+    </ng-container>
+  
+    <!-- Terça-Feira Column -->
+    <ng-container matColumnDef="terca">
+      <th mat-header-cell *matHeaderCellDef> Terça-Feira </th>
+      <td mat-cell *matCellDef="let disciplina"> 
+        <span *ngIf="disciplina.diaSemana === 'Terca'">{{ disciplina.Terca.nome }}</span>
+      </td>
+    </ng-container>
+  
+    <!-- Quarta-Feira Column -->
+    <ng-container matColumnDef="quarta">
+      <th mat-header-cell *matHeaderCellDef> Quarta-Feira </th>
+      <td mat-cell *matCellDef="let disciplina"> 
+        <span *ngIf="disciplina.diaSemana === 'Quarta'">{{ disciplina.Quarta.nome }}</span>
+      </td>
+    </ng-container>
+  
+    <!-- Quinta-Feira Column -->
+    <ng-container matColumnDef="quinta">
+      <th mat-header-cell *matHeaderCellDef> Quinta-Feira </th>
+      <td mat-cell *matCellDef="let disciplina"> 
+        <span *ngIf="disciplina.diaSemana === 'Quinta'">{{ disciplina.quinta.nome }}</span>
+      </td>
+    </ng-container>
+  
+    <!-- Sexta-Feira Column -->
+    <ng-container matColumnDef="sexta">
+      <th mat-header-cell *matHeaderCellDef> Sexta-Feira </th>
+      <td mat-cell *matCellDef="let disciplina"> 
+        <span *ngIf="disciplina.diaSemana === 'Sexta'">{{ disciplina.sexta.nome }}</span>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>    

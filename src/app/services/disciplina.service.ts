@@ -31,4 +31,15 @@ export class DisciplinaService {
     var result = this.http.delete(`${this.url}/${id}`);
     return result;
   }
+
+  getDisciplinasAlunoSemestre(idAluno: string , idSemestre: string): Observable<any> {
+    var result = this.http.get(`${environment.apiUrl}/aluno/${idAluno}/semestres/${idSemestre}/disciplinas`);
+    return result;
+  }
+  
+  getDisciplinasSemestre(idSemestre: string): Observable<any> {
+    var result = this.http.get(`${environment.apiUrl}/semestres/${idSemestre}/disciplinas`);
+    return result;
+  }
+
 }

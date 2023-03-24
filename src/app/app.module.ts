@@ -21,7 +21,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { GradeComponent } from './components/grade/grade.component';
 import { MatCardModule } from '@angular/material/card';
-import {MatRadioModule} from '@angular/material/radio'
+import { MatRadioModule } from '@angular/material/radio';
+import { GestaoComponent } from './components/gestao/gestao.component'
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {MatRadioModule} from '@angular/material/radio'
     ListaLinhaComponent,
     ListaSemestreComponent,
     ListaDisciplinaComponent,
-    GradeComponent
+    GradeComponent,
+    GestaoComponent
   ],
   imports: [
     AppRoutingModule,
