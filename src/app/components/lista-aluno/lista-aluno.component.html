@@ -49,7 +49,13 @@
     <!-- ------ Fim --------- -->
 
   </mat-tab>
-  <mat-tab label="Linhas"> <app-lista-linha></app-lista-linha> </mat-tab>
-  <mat-tab label="Disciplinas"> <app-lista-disciplina></app-lista-disciplina> </mat-tab>
-  <mat-tab label="Semestres"> <app-lista-semestre></app-lista-semestre> </mat-tab>
+  <mat-tab label="Linhas">
+    <div class="content"><app-lista-linha></app-lista-linha></div>
+  </mat-tab>
+  <mat-tab label="Disciplinas">
+    <div class="content"><app-lista-disciplina></app-lista-disciplina></div>
+  </mat-tab>
+  <mat-tab label="Semestres">
+    <div class="content"><<app-lista-semestre></app-lista-semestre></div>
+  </mat-tab>
 </mat-tab-group>
