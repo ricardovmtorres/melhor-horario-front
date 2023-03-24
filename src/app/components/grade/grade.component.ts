@@ -134,7 +134,7 @@ export class GradeComponent {
     };
 
     disciplinasOrdenadas.forEach(disciplina => {
-      diasDaSemana[disciplina.diaSemana].push(disciplina);
+      diasDaSemana[disciplina.diaSemana] = disciplina;
     });
 
     this.dataSource = [];

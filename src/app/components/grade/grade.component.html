@@ -15,7 +15,7 @@
     <ng-container matColumnDef="segunda">
       <th mat-header-cell *matHeaderCellDef> Segunda-Feira </th>
       <td mat-cell *matCellDef="let disciplina"> 
-        <span *ngIf="disciplina.diaSemana === 'Segunda'">{{ disciplina.horario }}</span>
+        <span *ngIf="disciplina.Segunda != {}">{{ disciplina.Segunda.nome }}</span>
       </td>
     </ng-container>
   
@@ -23,7 +23,7 @@
     <ng-container matColumnDef="terca">
       <th mat-header-cell *matHeaderCellDef> Terça-Feira </th>
       <td mat-cell *matCellDef="let disciplina"> 
-        <span *ngIf="disciplina.diaSemana === 'Terca'">{{ disciplina.Terca.nome }}</span>
+        <span *ngIf="disciplina.Terca != {}">{{ disciplina.Terca.nome }}</span>
       </td>
     </ng-container>
   
@@ -31,7 +31,7 @@
     <ng-container matColumnDef="quarta">
       <th mat-header-cell *matHeaderCellDef> Quarta-Feira </th>
       <td mat-cell *matCellDef="let disciplina"> 
-        <span *ngIf="disciplina.diaSemana === 'Quarta'">{{ disciplina.Quarta.nome }}</span>
+        <span *ngIf="disciplina.Quarta != {}">{{ disciplina.Quarta.nome }}</span>
       </td>
     </ng-container>
   
@@ -39,7 +39,7 @@
     <ng-container matColumnDef="quinta">
       <th mat-header-cell *matHeaderCellDef> Quinta-Feira </th>
       <td mat-cell *matCellDef="let disciplina"> 
-        <span *ngIf="disciplina.diaSemana === 'Quinta'">{{ disciplina.quinta.nome }}</span>
+        <span *ngIf="disciplina.Quinta != {}">{{ disciplina.Quinta.nome }}</span>
       </td>
     </ng-container>
   
@@ -47,7 +47,7 @@
     <ng-container matColumnDef="sexta">
       <th mat-header-cell *matHeaderCellDef> Sexta-Feira </th>
       <td mat-cell *matCellDef="let disciplina"> 
-        <span *ngIf="disciplina.diaSemana === 'Sexta'">{{ disciplina.sexta.nome }}</span>
+        <span *ngIf="disciplina.Sexta != {}">{{ disciplina.Sexta.nome }}</span>
       </td>
     </ng-container>
   
