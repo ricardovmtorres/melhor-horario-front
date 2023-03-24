@@ -14,7 +14,7 @@
     <mat-radio-group [(ngModel)]="idSemestre" aria-label="Select uma opção" (change)="filterChanged()">
       <mat-radio-button class="me-2" *ngFor="let s of semestres" [value]="s.id">{{ s.nome }}</mat-radio-button>
     </mat-radio-group>
-    <div class="cronograma-box>">
+    <div class="cronograma-box">
       <div class="tabela" *ngIf="idAluno != '' && idSemestre != ''; else selecione">
 
         <p class="fs-5 fw-bold mt-4 text-center"> Cronograma de aulas - {{ nomeSemestre }}</p>

@@ -1,7 +1,8 @@
 <div class="row">
-    <div class="form">
+    <div>
         <form [formGroup]="formulario">
-            <mat-form-field class="me-2">
+            <mat-form-field class="me-2"> 
+                <mat-label>Selecione um semestre</mat-label>
                 <mat-select formControlName="idSemestre">
                     <mat-option *ngFor="let s of semestres" [value]="s.id">
                         {{s.nome}}
