@@ -23,6 +23,7 @@ interface Disciplina {
 export class GradeComponent {
   public idAluno: string = "";
   public idSemestre: string = "";
+  public nomeSemestre: string = "";
   public alunos: any[] = [];
   public semestres: any[] = [];
   public disciplinasAluno: any[] = [];
@@ -42,9 +43,9 @@ export class GradeComponent {
     this.listarAlunos();
     this.listarSemestres();
     //teste:
-    this.idAluno = "1";
-    this.idSemestre = "1";
-    this.filterChanged();
+    // this.idAluno = "1";
+    // this.idSemestre = "1";
+    // this.filterChanged();
   };
 
   listarAlunos() {
@@ -100,7 +101,10 @@ export class GradeComponent {
   }
 
   filterChanged() {
+    this.dataSource = [];
     if (this.idAluno != "" && this.idSemestre != "") {
+      this.nomeSemestre = this.semestres.filter(s => s.id === this.idSemestre)[0].nome;
+
       this.disciplinaService.getDisciplinasAlunoSemestre(this.idAluno, this.idSemestre).subscribe({
         next: (data) => {
           //buscas as disciplinas daquele aluno naquele semestre
