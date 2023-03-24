@@ -115,3 +115,21 @@ color:#747985;
     border: 1px solid #eee;
     border-radius: 8px;
 }
+
+.card-tem-horario {
+    min-height: 64px;
+    border: 1px solid #E9E9E9;
+    background-color: #FAFAFA;
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.mdc-data-table__cell, .mdc-data-table__header-cell {
+    border: none!important;
+}
+
+tbody.proj-table td{
+
+    border-collapse: separate; 
+border-spacing: 1em;
+}
