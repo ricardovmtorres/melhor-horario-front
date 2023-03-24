@@ -9,7 +9,7 @@ import { SemestreService } from 'src/app/services/semestre.service';
 })
 export class ListaSemestreComponent {
   public semestres: any[] = [];
-  public displayedColumns: string[] = ['id', 'nome', 'disciplinas', 'acoes'];
+  public displayedColumns: string[] = ['id', 'nome', 'acoes'];
 
   public formulario: FormGroup;
 
@@ -47,7 +47,6 @@ export class ListaSemestreComponent {
     console.log(this.formulario.value.nome);
     const semestre = {
       nome: this.formulario.value.nome,
-      aluno: {}
     }
     const aluno = {}
     this.semestreService.createSemestre(semestre).subscribe({

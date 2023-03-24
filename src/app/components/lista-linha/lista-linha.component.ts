@@ -22,7 +22,7 @@ export class ListaLinhaComponent {
   ) {
     this.formulario = this.formBuilder.group({
       nome: ['', Validators.required],
-      tempo: ['', Validators.required],
+      tempo: [0, Validators.required],
     });
   }
 
@@ -50,8 +50,7 @@ export class ListaLinhaComponent {
     console.log(this.formulario.value.nome);
     const linha = {
       nome: this.formulario.value.nome,
-      tempo_ate_ponto_de_controle: this.formulario.value.tempo,
-      partidaLinha: {}
+      tempo_ate_ponto_controle: Number(this.formulario.value.tempo),
     }
     this.linhaService.createLinha(linha).subscribe({
       next: (data) => {
