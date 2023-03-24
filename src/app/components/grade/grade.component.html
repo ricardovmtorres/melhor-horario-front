@@ -32,7 +32,8 @@
             <th mat-header-cell *matHeaderCellDef> Segunda-Feira </th>
             <td style="width: 160px" mat-cell *matCellDef="let disciplina">
               <span *ngIf="disciplina.Segunda != {}">{{ disciplina.Segunda.nome }}</span><br>
-              <div class="proj-label-onibus"><mat-icon> directions_bus</mat-icon>
+              <div class="proj-label-onibus" *ngIf="disciplina.Segunda.melhorLinha != undefined">
+                <mat-icon> directions_bus</mat-icon>
                 {{ disciplina.Segunda.melhorLinha }}
               </div>
             </td>
@@ -44,7 +45,8 @@
             <td style="width: 160px" mat-cell *matCellDef="let disciplina">
               <span *ngIf="disciplina.Terca != {}">{{ disciplina.Terca.nome }}</span><br>
 
-              <div class="proj-label-onibus"><mat-icon> directions_bus</mat-icon>
+              <div class="proj-label-onibus">
+                <mat-icon> directions_bus</mat-icon>
                 {{ disciplina.Terca.melhorLinha }}
               </div>
             </td>
@@ -56,7 +58,8 @@
             <td style="width: 160px" mat-cell *matCellDef="let disciplina">
               <span *ngIf="disciplina.Quarta != {}">{{ disciplina.Quarta.nome }}</span><br>
 
-              <div class="proj-label-onibus"><mat-icon> directions_bus</mat-icon>
+              <div class="proj-label-onibus">
+                <mat-icon> directions_bus</mat-icon>
                 {{ disciplina.Quarta.melhorLinha }}
               </div>
             </td>
@@ -68,7 +71,8 @@
             <td style="width: 160px" mat-cell *matCellDef="let disciplina">
               <span *ngIf="disciplina.Quinta != {}">{{ disciplina.Quinta.nome }}</span><br>
 
-              <div class="proj-label-onibus"><mat-icon> directions_bus</mat-icon>
+              <div class="proj-label-onibus">
+                <mat-icon> directions_bus</mat-icon>
                 {{ disciplina.Quinta.melhorLinha }}
               </div>
             </td>
@@ -79,7 +83,8 @@
             <th mat-header-cell *matHeaderCellDef> Sexta-Feira </th>
             <td style="width: 160px" mat-cell *matCellDef="let disciplina">
               <span *ngIf="disciplina.Sexta != {}">{{ disciplina.Sexta.nome }}</span><br>
-               <div class="proj-label-onibus"><mat-icon> directions_bus</mat-icon>
+              <div class="proj-label-onibus">
+                <mat-icon> directions_bus</mat-icon>
                 {{ disciplina.Sexta.melhorLinha }}
               </div>
             </td>
