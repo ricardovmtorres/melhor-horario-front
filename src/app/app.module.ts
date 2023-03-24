@@ -23,7 +23,9 @@ import { GradeComponent } from './components/grade/grade.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatRadioModule } from '@angular/material/radio';
 import { GestaoComponent } from './components/gestao/gestao.component';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
+import { DetalharLinhaComponent } from './components/lista-linha/detalhar-linha/detalhar-linha.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -34,7 +36,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     ListaSemestreComponent,
     ListaDisciplinaComponent,
     GradeComponent,
-    GestaoComponent
+    GestaoComponent,
+    DetalharLinhaComponent
   ],
   imports: [
     AppRoutingModule,
@@ -52,6 +55,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatCardModule,
     MatRadioModule,
     MatTabsModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
