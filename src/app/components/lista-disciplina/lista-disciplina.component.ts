@@ -21,10 +21,8 @@ export class ListaDisciplinaComponent {
     private formBuilder: FormBuilder
   ) {
     this.formulario = this.formBuilder.group({
-      idSemestre: ['', Validators.required],
       nome: ['', Validators.required],
       nomeCurto: ['', Validators.required],
-      sala: ['', Validators.required],
     });
   }
 
@@ -70,7 +68,7 @@ export class ListaDisciplinaComponent {
     console.log(this.formulario.value.nome);
     const disciplina = {
       nome: this.formulario.value.nome,
-      tempo_ate_ponto_de_controle: this.formulario.value.tempo
+      nome_curto: this.formulario.value.nomeCurto
     }
     this.disciplinaService.createDisciplina(disciplina).subscribe({
       next: (data) => {

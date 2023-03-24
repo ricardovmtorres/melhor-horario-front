@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { forkJoin } from 'rxjs';
 import { HorarioService } from 'src/app/services/horario.service';
 
 @Component({
@@ -52,53 +53,34 @@ export class DetalharLinhaComponent {
     console.log(this.formulario.value.horario);
     let horas = this.formulario.value.horario;
     let novos: any[] = [];
-    let horario = {
-      dia: "Segunda",
-      horario: horas,
-      linhaId: this.idLinha
-    }
-    novos.push(horario);
-    horario = {
-      dia: "Terca",
-      horario: horas,
-      linhaId: this.idLinha
-    }
-    novos.push(horario);
-    horario = {
-      dia: "Quarta",
-      horario: horas,
-      linhaId: this.idLinha
-    }
-    novos.push(horario);
-    horario = {
-      dia: "Quinta",
-      horario: horas,
-      linhaId: this.idLinha
-    }
-    novos.push(horario);
-    horario = {
-      dia: "Sexta",
-      horario: horas,
-      linhaId: this.idLinha
-    }
-    novos.push(horario);
+    const weekdays = ["Segunda", "Terca", "Quarta", "Quinta", "Sexta"];
 
-    novos.forEach(h => {
-      this.horarioService.createHorario(h).subscribe({
-        next: (data) => {
-          console.log(data);
-        },
-        error: (error) => {
-          console.error("Erro na criação do horario:");
-          console.error(error);
-        },
-        complete: () => {
-          console.log('Criação do horario concluída');
-        },
-      });
+    for (let i = 0; i < weekdays.length; i++) {
+      let horario = {
+        dia: weekdays[i],
+        horario: horas,
+        linhaId: this.idLinha
+      };
+      novos.push(horario);
+    }
+    
+    const observables = novos.map((horario) =>
+      this.horarioService.createHorario(horario)
+    );
+
+    forkJoin(observables).subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (error) => {
+        console.error("Erro na busca dos detalhes dos pokemons:");
+        console.error(error);
+      },
+      complete: () => {
+        console.log('Consulta dos detalhes dos Pokemons da pagina concluída:');
+        this.listarHorariosPorLinha();
+      },
     });
-
-    this.listarHorariosPorLinha();
     
   }
 
